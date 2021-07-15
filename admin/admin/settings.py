@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'jobs'
+    'jobs',
+    'uploader'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+#S3 storage service settings
+AWS_ACCESS_KEY_ID = 'AKIAQG5MQWRD6NAX6QVJ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'easy-ds'
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_S3_REGION_NAME = 'us-east-2'
+AWS_S3_FILE_OVERWRITE = True
+AWS_DEFAULT_ACL = None
+AWS_S3_VERIFY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
