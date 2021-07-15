@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <a class="btn btn-info m-t-20 p-15 p-l-25 p-r-25 m-b-20" (click)="onGetAllJobs()">List of Jobs</a>
+        <div *ngIf="jobs">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Job title</th>
+                <th scope="col">Job type</th>
+                <th scope="col">Job description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let j of jobs; let i = index">
+                <th scope="row">{{i}}</th>
+                <td>{{j.job_title}}</td>
+                <td>{{j.job_type}}</td>
+                <td>{{j.job_description}}</td>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                    <i class="ti-settings"></i>
+                  </button>
+                  <div class="dropdown-menu animated flipInX">
+                    <a class="dropdown-item" [routerLink]="['/services/job-item', j.id]">Open</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Delete</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript:void(0)">Export</a>
+                  </div>
+                </div>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
